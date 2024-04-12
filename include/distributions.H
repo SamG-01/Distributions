@@ -14,52 +14,53 @@ template <typename T>
 class distribution {
     private:
         /// @brief Essential data.
-        std::valarray<T> _samples; ///< Valarray of the data.
+        std::valarray<T> _samples; ///< `valarray` of the data.
         int _num_samples; ///< Size of the data.
 
-        /// @brief Statistical information for the data.
+        /// @brief Statistics of the data.
         T _mean;
         T _variance;
         T _standard_deviation;
 
     public:
         /// @brief Constructs a distribution from an existing valarray.
-        /// @param __samples Valarray of data to convert to a distribution.
+        /// @param __samples `valarray` of data to convert to a distribution.
         distribution(std::valarray<T> __samples) {
             _samples = __samples;
             _num_samples = __samples.size();
 
-            /// @brief Calculates the statistical information.
+            /// @brief Calculates statistics of the data.
             _mean = vaverage(__samples);
             _variance = std::pow(vaverage(pow(vabs(_samples), 2))) - pow(std::abs(_mean), 2);
             _standard_deviation = std::sqrt(_variance);
         };
 
         /// @brief Ready-only getters for private members.
-        const auto& samples = _samples;
-        const auto& data = _samples;
+        const auto &samples = _samples;
+        const auto &data = _samples;
 
-        const auto& num_samples = _num_samples;
-        const auto& size = _num_samples;
-        const auto& length = _num_samples;
-        const auto& len = _num_samples;
+        const auto &num_samples = _num_samples;
+        const auto &size = _num_samples;
+        const auto &length = _num_samples;
+        const auto &len = _num_samples;
 
-        const auto& mean = _mean;
-        const auto& average = _mean;
-        const auto& avg = _mean;
-        const auto& nominal_value = _mean;
-        const auto& nom_val = _mean;
-        const auto& n = _mean;
+        const auto &mean = _mean;
+        const auto &average = _mean;
+        const auto &avg = _mean;
+        const auto &nominal_value = _mean;
+        const auto &nom_val = _mean;
+        const auto &n = _mean;
 
-        const auto& variance = _variance;
-        const auto& var = _variance;
+        const auto &variance = _variance;
+        const auto &var = _variance;
 
-        const auto& standard_deviation = _standard_deviation;
-        const auto& std_dev = _standard_deviation;
-        const auto& error = _standard_deviation;
-        const auto& s = _standard_deviation;
+        const auto &standard_deviation = _standard_deviation;
+        const auto &std_dev = _standard_deviation;
+        const auto &error = _standard_deviation;
+        const auto &s = _standard_deviation;
 
         // TODO: cout, comparisons (compare means)
+        // TODO: consider alternate implementation with Eigen package
 };
 
 #endif
