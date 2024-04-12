@@ -1,67 +1,65 @@
-#include <valarray>
+#ifndef DISTRIBUTIONS_H
+#define DISTRIBUTIONS_H
+
+#include <valarray_math.h>
+
 #include <iostream>
-#include <cmath>
-#include <functional>
 
-template <typename T>
-std::valarray<T> valarray_apply(std::valarray<T> arr, T (*function)(T)) {
-    for (int i = 0; i < arr.size(); i++) {
-        arr[i] = function(arr[i]);
-    }
-    return arr;
-}
-
+/// @class distribution distributions.h "distributions.H"
+/// @brief Contains a distribution of values that can be operated on to perform Monte Carlo error propagation.
+/// @tparam T the data type.
+/// @note As an alternative to first- or second-order error propagation for a random variable with a given mean and uncertainty, one can generate sample data reflecting those values, operate on it element-wise, and find the resulting statistics.
+/// @note To implement this, this class contains a `valarray` object of the sample data along with members with statistical information.
 template <typename T>
 class distribution {
     private:
-        // Essential Data
-        std::valarray<T> _samples;
-        int _num_samples;
+        /// @brief Essential data.
+        std::valarray<T> _samples; ///< Valarray of the data.
+        int _num_samples; ///< Size of the data.
 
-        // Statistics
+        /// @brief Statistical information for the data.
         T _mean;
         T _variance;
-        T _stdev;
+        T _standard_deviation;
 
     public:
-        // Constructors
+        /// @brief Constructs a distribution from an existing valarray.
+        /// @param __samples Valarray of data to convert to a distribution.
         distribution(std::valarray<T> __samples) {
             _samples = __samples;
             _num_samples = __samples.size();
 
-            _mean = __samples.sum() / _num_samples;
-            _variance = (std::pow(valarray_apply<T>(__samples - _mean, std::abs), 2)).sum() / / _num_samples;
-            _stdev = std::sqrt(_variance);
+            /// @brief Calculates the statistical information.
+            _mean = vaverage(__samples);
+            _variance = std::pow(vaverage(pow(vabs(_samples), 2))) - pow(std::abs(_mean), 2);
+            _standard_deviation = std::sqrt(_variance);
         };
 
-        // Getters
-        std::valarray<T> samples() const {
-            return _samples;
-        }
-        int num_samples const {
-            return _num_samples;
-        }
-        int length() const { return num_samples(); }
-        int N() const { return num_samples(); }
+        /// @brief Ready-only getters for private members.
+        const auto& samples = _samples;
+        const auto& data = _samples;
 
-        T mean() const {
-            return _mean;
-        }
-        T average() const { return mean(); }
-        T avg() const { return mean(); }
-        T m() const { return mean(); }
+        const auto& num_samples = _num_samples;
+        const auto& size = _num_samples;
+        const auto& length = _num_samples;
+        const auto& len = _num_samples;
 
-        T variance() const {
-            return _variance;
-        }
-        T var() const { return variance(); }
+        const auto& mean = _mean;
+        const auto& average = _mean;
+        const auto& avg = _mean;
+        const auto& nominal_value = _mean;
+        const auto& nom_val = _mean;
+        const auto& n = _mean;
 
-        T stdev() const {
-            return _stdev;
-        }
-        T standard_deviation() const { return stdev(); }
-        T error() const { return stdev(); }
-        T s() const { return stdev(); }
+        const auto& variance = _variance;
+        const auto& var = _variance;
 
-        // TODO: cout
+        const auto& standard_deviation = _standard_deviation;
+        const auto& std_dev = _standard_deviation;
+        const auto& error = _standard_deviation;
+        const auto& s = _standard_deviation;
+
+        // TODO: cout, comparisons (compare means)
 };
+
+#endif
