@@ -14,8 +14,8 @@
 template <typename T>
 class distribution {
     private:
-        /// @brief Essential data.
-        std::valarray<T> _samples; ///< `valarray` of the data.
+        /// @brief Core members.
+        std::valarray<T> _samples; ///< `valarray` containing the sample data.
         int _num_samples; ///< Size of the data.
 
         /// @brief Statistics of the data.
@@ -24,8 +24,8 @@ class distribution {
         T _standard_deviation;
 
     public:
-        /// @brief Constructs a distribution from an existing `valarray`.
-        /// @param __samples `valarray` of data to convert to a distribution.
+        /// @brief Constructs a distribution from a `valarray`.
+        /// @param __samples `valarray` of sample data contained within the distribution.
         distribution(std::valarray<T> __samples) {
             _samples = __samples;
             _num_samples = __samples.size();
