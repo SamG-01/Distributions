@@ -4,6 +4,7 @@
 #include <valarray_math.h>
 
 #include <iostream>
+#include <functional>
 
 /// @class distribution distributions.h "./distributions.H"
 /// @brief Contains a distribution of values that can be operated on to perform Monte Carlo error propagation.
@@ -35,29 +36,29 @@ class distribution {
             _standard_deviation = std::sqrt(_variance);
         };
 
-        /// @brief Ready-only getters for private members.
-        const auto &samples = _samples;
-        const auto &data = _samples;
+        /// @brief Ready-only reference wrappers for private members.
+        const std::valarray<T> samples = std::cref(_samples);
+        const std::valarray<T> data = std::cref(_samples);
 
-        const auto &num_samples = _num_samples;
-        const auto &size = _num_samples;
-        const auto &length = _num_samples;
-        const auto &len = _num_samples;
+        const int num_samples = std::cref(_num_samples);
+        const int size = std::cref(_num_samples);
+        const int length = std::cref(_num_samples);
+        const int len = std::cref(_num_samples);
 
-        const auto &mean = _mean;
-        const auto &average = _mean;
-        const auto &avg = _mean;
-        const auto &nominal_value = _mean;
-        const auto &nom_val = _mean;
-        const auto &n = _mean;
+        const T mean = std::cref(_mean);
+        const T average = std::cref(_mean);
+        const T avg = std::cref(_mean);
+        const T nominal_value = std::cref(_mean);
+        const T nom_val = std::cref(_mean);
+        const T n = std::cref(_mean);
 
-        const auto &variance = _variance;
-        const auto &var = _variance;
+        const T variance = std::cref(_variance);
+        const T var = std::cref(_variance);
 
-        const auto &standard_deviation = _standard_deviation;
-        const auto &std_dev = _standard_deviation;
-        const auto &error = _standard_deviation;
-        const auto &s = _standard_deviation;
+        const T standard_deviation = std::cref(_standard_deviation);
+        const T std_dev = std::cref(_standard_deviation);
+        const T error = std::cref(_standard_deviation);
+        const T s = std::cref(_standard_deviation);
 
         // TODO: cout, comparisons (compare means)
         // TODO: consider alternate implementation with Eigen package
