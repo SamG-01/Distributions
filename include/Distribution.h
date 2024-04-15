@@ -131,6 +131,7 @@ class Distribution {
         }
 
         /// @brief Friends
+        template<typename> friend std::ostream& operator<< (std::ostream& os, const Distribution<T>);
         template<typename> friend Distribution<T> operator+ (T, const Distribution<T>);
         template<typename> friend Distribution<T> operator- (T, const Distribution<T>);
         template<typename> friend Distribution<T> operator* (T, const Distribution<T>);
@@ -138,6 +139,12 @@ class Distribution {
 };
 
 /// @brief Friends
+
+template <typename T>
+std::ostream& operator<< (std::ostream& os, const Distribution<T>& Dist) {
+    os << Dist.mean() << " +/- " << Dist.standard_deviation();
+    return os;
+}
 
 /// @brief Scalar-`Distribution` operations.
 
