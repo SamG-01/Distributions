@@ -1,7 +1,7 @@
 #ifndef RANDOM_DISTRIBUTION_H
 #define RANDOM_DISTRIBUTION_H
 
-#include "distributions.h"
+#include "Distribution.h"
 
 #include <random>
 
