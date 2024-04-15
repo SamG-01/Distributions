@@ -1,3 +1,6 @@
+#ifndef VALARRAY_MATH_H
+#define VALARRAY_MATH_H
+
 #include <valarray>
 #include <cmath>
 
@@ -30,3 +33,4 @@ T vaverage(std::valarray<T> arr) {
     return arr.sum() / arr.size();
 }
 
+#endif
