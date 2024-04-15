@@ -4,3 +4,6 @@ build
 # Executables
 *.exe
 *.out
+
+# Misc
+testing
