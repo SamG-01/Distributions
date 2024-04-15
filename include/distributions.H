@@ -6,13 +6,13 @@
 #include <iostream>
 #include <functional>
 
-/// @class distribution distributions.h "./distributions.H"
+/// @class Distribution distributions.h "./distributions.H"
 /// @brief Contains a distribution of values that can be operated on to perform Monte Carlo error propagation.
 /// @tparam T the data type (`double`, `std::complex`, etc.).
 /// @note As an alternative to first- or second-order error propagation for a random variable with a given mean and uncertainty, one can generate sample data reflecting those values, operate on it element-wise, and find the resulting statistics.
 /// @note To implement this, this class contains a `valarray` object of the sample data along with members with statistical information.
 template <typename T>
-class distribution {
+class Distribution {
     private:
         /// @brief Core members.
         std::valarray<T> _samples; ///< `valarray` containing the sample data.
@@ -26,7 +26,7 @@ class distribution {
     public:
         /// @brief Constructs a distribution from a `valarray`.
         /// @param __samples `valarray` of sample data contained within the distribution.
-        distribution(std::valarray<T> __samples) {
+        Distribution(std::valarray<T> __samples) {
             _samples = __samples;
             _num_samples = __samples.size();
 
