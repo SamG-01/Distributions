@@ -61,8 +61,7 @@ class Distribution {
         /// @param func the function to be applied.
         /// @return The resulting distribution.
         Distribution<T> apply(T func(T)) {
-            new_samples = this->samples.apply(func);
-            return Distribution<T>(new_samples);
+            return Distribution<T>(_samples.apply(func));
         }
 
         /// @brief `Distribution`-`Distribution` operations
@@ -71,40 +70,28 @@ class Distribution {
         /// @param Dist2 second summand.
         /// @return The resulting distribution.
         Distribution<T> operator+ (const Distribution<T> Dist2) {
-            new_samples = _samples + Dist2.samples();
-            return Distribution<T>(new_samples)
-        }
-
-        /// @brief Add `Distribution`s by adding their samples element-wise.
-        /// @param Dist2 second summand.
-        /// @return The resulting distribution.
-        Distribution<T> operator+ (const Distribution<T> Dist2) {
-            new_samples = _samples + Dist2.samples();
-            return Distribution<T>(new_samples)
+            return Distribution<T>(_samples + Dist2.samples());
         }
         
         /// @brief Subtract `Distribution`s by subtracting their samples element-wise.
         /// @param Dist2 the subtrahend.
         /// @return The resulting distribution.
         Distribution<T> operator- (const Distribution<T> Dist2) {
-            new_samples = _samples - Dist2.samples();
-            return Distribution<T>(new_samples)
+            return Distribution<T>(_samples - Dist2.samples());
         }
         
         /// @brief Multiply `Distribution`s by multiplying their samples element-wise.
         /// @param Dist2 the multiplier.
         /// @return The resulting distribution.
         Distribution<T> operator* (const Distribution<T> Dist2) {
-            new_samples = _samples * Dist2.samples();
-            return Distribution<T>(new_samples)
+            return Distribution<T>(_samples * Dist2.samples());
         }
 
         /// @brief Divide `Distribution`s by dividing their samples element-wise.
         /// @param Dist2 the divisor.
         /// @return The resulting distribution.
         Distribution<T> operator/ (const Distribution<T> Dist2) {
-            new_samples = _samples / Dist2.samples();
-            return Distribution<T>(new_samples)
+            return Distribution<T>(_samples / Dist2.samples());
         }
 
         /// @brief `Distribution`-scalar operations.
@@ -112,14 +99,14 @@ class Distribution {
         /// @brief Sum of a `Distribution` and a scalar.
         /// @param scalar summand of type `T`.
         /// @return The resulting distribution.
-        Distribution<T> operator* (const T scalar) {
+        Distribution<T> operator+ (const T scalar) {
             return Distribution<T>(_samples + scalar);
         }
 
         /// @brief Subtract a `Distribution` by a scalar.
         /// @param scalar subtrahend of type `T`.
         /// @return The resulting distribution.
-        Distribution<T> operator* (const T scalar) {
+        Distribution<T> operator- (const T scalar) {
             return Distribution<T>(_samples - scalar);
         }
 
@@ -144,10 +131,10 @@ class Distribution {
         }
 
         /// @brief Friends
-        friend Distribution<T> operator+ (T, const Distribution<T>);
-        friend Distribution<T> operator- (T, const Distribution<T>);
-        friend Distribution<T> operator* (T, const Distribution<T>);
-        friend Distribution<T> operator/ (T, const Distribution<T>);
+        template<typename> friend Distribution<T> operator+ (T, const Distribution<T>);
+        template<typename> friend Distribution<T> operator- (T, const Distribution<T>);
+        template<typename> friend Distribution<T> operator* (T, const Distribution<T>);
+        template<typename> friend Distribution<T> operator/ (T, const Distribution<T>);
 };
 
 /// @brief Friends
@@ -161,7 +148,7 @@ class Distribution {
 /// @return The resulting `Distribution`.
 template <typename T>
 Distribution<T> operator+ (T scalar, const Distribution<T>& Dist) {
-    return Distribution<T>(scalar + Dist.samples())
+    return Distribution<T>(scalar + Dist.samples());
 }
 
 /// @brief Subtract a scalar by a `Distribution`.
@@ -171,7 +158,7 @@ Distribution<T> operator+ (T scalar, const Distribution<T>& Dist) {
 /// @return The resulting `Distribution`.
 template <typename T>
 Distribution<T> operator- (T scalar, const Distribution<T>& Dist) {
-    return Distribution<T>(scalar - Dist.samples())
+    return Distribution<T>(scalar - Dist.samples());
 }
 
 /// @brief Multiply a scalar by a `Distribution`.
@@ -181,7 +168,7 @@ Distribution<T> operator- (T scalar, const Distribution<T>& Dist) {
 /// @return The resulting `Distribution`
 template <typename T>
 Distribution<T> operator* (T scalar, const Distribution<T>& Dist) {
-    return Distribution<T>(scalar * Dist.samples())
+    return Distribution<T>(scalar * Dist.samples());
 }
 
 /// @brief Divide a scalar by a `Distribution`.
@@ -191,7 +178,7 @@ Distribution<T> operator* (T scalar, const Distribution<T>& Dist) {
 /// @return The resulting `Distribution`.
 template <typename T>
 Distribution<T> operator/ (T scalar, const Distribution<T>& Dist) {
-    return Distribution<T>(scalar / Dist.samples())
+    return Distribution<T>(scalar / Dist.samples());
 }
 
 #endif
