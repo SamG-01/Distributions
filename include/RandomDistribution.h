@@ -5,6 +5,7 @@
 
 #include <random>
 
+/// @brief Creates source of pseudo-random numbers.
 std::random_device rd;
 std::default_random_engine generator;
 std::mt19937 gen(rd());
