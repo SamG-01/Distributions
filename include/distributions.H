@@ -1,10 +1,10 @@
 #ifndef DISTRIBUTIONS_H
 #define DISTRIBUTIONS_H
 
-#include <valarray_math.h>
-
+#include <cmath>
 #include <iostream>
 #include <functional>
+#include <valarray>
 
 /// @class Distribution distributions.h "./distributions.H"
 /// @brief Contains a distribution of values that can be operated on to perform Monte Carlo error propagation.
@@ -31,37 +31,34 @@ class Distribution {
             _num_samples = __samples.size();
 
             /// @brief Calculates statistics of the data.
-            _mean = vaverage(__samples);
-            _variance = std::pow(vaverage(pow(vabs(_samples), 2))) - pow(std::abs(_mean), 2);
-            _standard_deviation = std::sqrt(_variance);
+            _mean = __samples.sum() / _num_samples;
+            _variance = (std::pow((_samples - _mean).apply(std::abs), 2)).sum() / _num_samples;
+            _standard_deviation = std::sqrt(_variance);            
         };
 
-        /// @brief Ready-only reference wrappers for private members.
-        const std::valarray<T> samples = std::cref(_samples);
-        const std::valarray<T> data = std::cref(_samples);
+        /// @brief Getters for private members.
+        std::valarray<T> samples() const { return _samples; }
+        std::valarray<T> data() const { return _samples; }
 
-        const int num_samples = std::cref(_num_samples);
-        const int size = std::cref(_num_samples);
-        const int length = std::cref(_num_samples);
-        const int len = std::cref(_num_samples);
+        int num_samples() const { return _num_samples; }
+        int size() const { return _num_samples; }
+        int length() const { return _num_samples; }
+        int len() const { return _num_samples; }
 
-        const T mean = std::cref(_mean);
-        const T average = std::cref(_mean);
-        const T avg = std::cref(_mean);
-        const T nominal_value = std::cref(_mean);
-        const T nom_val = std::cref(_mean);
-        const T n = std::cref(_mean);
+        T mean() const { return _mean; }
+        T average() const { return _mean; }
+        T avg() const { return _mean; }
+        
+        T variance() const {return _variance; }
+        T var() const {return _variance; }
 
-        const T variance = std::cref(_variance);
-        const T var = std::cref(_variance);
-
-        const T standard_deviation = std::cref(_standard_deviation);
-        const T std_dev = std::cref(_standard_deviation);
-        const T error = std::cref(_standard_deviation);
-        const T s = std::cref(_standard_deviation);
+        T standard_deviation() const {return _standard_deviation; }
+        T std_dev() const {return _standard_deviation; }
 
         // TODO: cout, comparisons (compare means)
         // TODO: consider alternate implementation with Eigen package
+
+
 };
 
 #endif
