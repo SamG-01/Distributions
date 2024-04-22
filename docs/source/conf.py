@@ -11,6 +11,7 @@ from subprocess import call
 call("cd ..; doxygen", shell=True)
 
 project = 'Distributions'
+copyright = "2024, Sam Glosser"
 author = 'Sam Glosser'
 
 # -- General configuration ---------------------------------------------------
