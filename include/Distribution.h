@@ -8,7 +8,7 @@
 
 /// @class Distribution distributions.h "./distributions.H"
 /// @brief Contains a distribution of values that can be operated on to perform Monte Carlo error propagation.
-/// @tparam T the data type (`double`, `std::complex`, etc.).
+/// @tparam T the data type (`double`, `float`, etc.).
 /// @note As an alternative to first- or second-order error propagation for a random variable with a given mean and uncertainty, one can generate sample data reflecting those values, operate on it element-wise, and find the resulting statistics.
 /// @note To implement this, this class contains a `valarray` object of the sample data along with members with statistical information.
 template <typename T>
@@ -62,6 +62,14 @@ class Distribution {
         /// @return The resulting distribution.
         Distribution<T> apply(T func(T)) {
             return Distribution<T>(_samples.apply(func));
+        }
+
+        /// @brief Computes the covariance of two `Distribution`s.
+        /// @param Dist2 the second distribution.
+        /// @return The covariance of `this` and `Dist2`.
+        T covariance(const Distribution<T> Dist2) {
+            Distribution<T> Dist3 = Distribution<T>((_samples - _mean) * (Dist2.samples() - Dist2.mean()));
+            return Dist3.mean();
         }
 
         /// @brief `Distribution`-`Distribution` operations
