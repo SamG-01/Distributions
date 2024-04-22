@@ -9,53 +9,57 @@
 /// @class Distribution distributions.h "./distributions.H"
 /// @brief Contains a distribution of values that can be operated on to perform Monte Carlo error propagation.
 /// @tparam T the data type (`double`, `float`, etc.).
-/// @note As an alternative to first- or second-order error propagation for a random variable with a given mean and uncertainty, one can generate sample data reflecting those values, operate on it element-wise, and find the resulting statistics.
-/// @note To implement this, this class contains a `valarray` object of the sample data along with members with statistical information.
+/// @brief As an alternative to first- or second-order error propagation for a random variable with a given mean and uncertainty, one can generate sample data reflecting those values, operate on it element-wise, and find the resulting statistics.
+/// @brief To implement this, this class contains a `valarray` object of the sample data along with members with statistical information.
 template <typename T>
 class Distribution {
     private:
-        /// @brief Core members.
+        // Core members.
         std::valarray<T> _samples; ///< `valarray` containing the sample data.
         int _num_samples; ///< Size of the data.
 
-        /// @brief Statistics of the data.
+        // Statistics of the data.
         T _mean;
         T _variance;
         T _standard_deviation;
 
     public:
-        /// @brief Constructs a distribution from a `valarray`.
+        // Constructs a distribution from a `valarray`.
         /// @param __samples `valarray` of sample data contained within the distribution.
         Distribution(std::valarray<T> __samples) {
             _samples = __samples;
             _num_samples = __samples.size();
 
-            /// @brief Calculates statistics of the data.
+            // Calculates statistics of the data.
             _mean = __samples.sum() / _num_samples;
             _variance = (std::pow((_samples - _mean).apply(std::abs), 2)).sum() / _num_samples;
             _standard_deviation = std::sqrt(_variance);            
         };
 
-        /// @brief Getters for private members.
+        // Getters for private members.
         std::valarray<T> samples() const { return _samples; }
         std::valarray<T> data() const { return _samples; }
 
+        /// @brief Number of samples.
         int num_samples() const { return _num_samples; }
         int size() const { return _num_samples; }
         int length() const { return _num_samples; }
         int len() const { return _num_samples; }
 
+        /// @brief Average of the samples.
         T mean() const { return _mean; }
         T average() const { return _mean; }
         T avg() const { return _mean; }
         
+        /// @brief Variance of the samples.
         T variance() const {return _variance; }
         T var() const {return _variance; }
 
+        /// @brief Standard deviation of the samples.
         T standard_deviation() const {return _standard_deviation; }
         T std_dev() const {return _standard_deviation; }
 
-        /// @brief Methods
+        // Methods
 
         /// @brief Applies a function to `samples` element-wise.
         /// @param func the function to be applied.
@@ -72,7 +76,7 @@ class Distribution {
             return Dist3.mean();
         }
 
-        /// @brief `Distribution`-`Distribution` operations
+        // `Distribution`-`Distribution` operations
 
         /// @brief Add `Distribution`s by adding their samples element-wise.
         /// @param Dist2 second summand.
@@ -102,7 +106,7 @@ class Distribution {
             return Distribution<T>(_samples / Dist2.samples());
         }
 
-        /// @brief `Distribution`-scalar operations.
+        // `Distribution`-scalar operations.
 
         /// @brief Sum of a `Distribution` and a scalar.
         /// @param scalar summand of type `T`.
@@ -138,7 +142,7 @@ class Distribution {
             return Distribution<T>(-1 * _samples);
         }
 
-        /// @brief Friends
+        // Friends
         template<typename> friend std::ostream& operator<< (std::ostream& os, const Distribution<T>);
         template<typename> friend Distribution<T> operator+ (T, const Distribution<T>);
         template<typename> friend Distribution<T> operator- (T, const Distribution<T>);
@@ -146,7 +150,7 @@ class Distribution {
         template<typename> friend Distribution<T> operator/ (T, const Distribution<T>);
 };
 
-/// @brief Friends
+// Friends
 
 template <typename T>
 std::ostream& operator<< (std::ostream& os, const Distribution<T>& Dist) {
@@ -154,7 +158,7 @@ std::ostream& operator<< (std::ostream& os, const Distribution<T>& Dist) {
     return os;
 }
 
-/// @brief Scalar-`Distribution` operations.
+// Scalar-`Distribution` operations.
 
 /// @brief Add a `Distribution` to a scalar.
 /// @tparam T the data type of the scalar and `Distribution`.
