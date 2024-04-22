@@ -2,4 +2,4 @@ Doxygen Files
 =============
 
 .. doxygenindex::
-   :project: Final Project
+   :project: Distributions
