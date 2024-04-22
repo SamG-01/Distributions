@@ -23,7 +23,7 @@ OBJECTS := $(SOURCES:.cpp=.o)
 # explicitly write the rule for linking together the executable
 
 Distribution: ${OBJECTS}
-  g++ -o $@ ${OBJECTS}
+  g++ -exe $@ ${OBJECTS}
 
 unit_tests: Distribution
 	./tests/ > /dev/null
