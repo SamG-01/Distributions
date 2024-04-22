@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Using Array &mdash; Distributions  documentation</title>
+  <title>Using Distributions &mdash; Distributions  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -46,7 +46,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Using Array</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using Distributions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API:</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="doxygen_files.html">Doxygen Files</a></li>
 </ul>
 
@@ -64,7 +67,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Using Array</li>
+      <li class="breadcrumb-item active">Using Distributions</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/using.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -74,10 +77,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="using-array">
-<h1>Using Array<a class="headerlink" href="#using-array" title="Link to this heading"></a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Array.H</span></code> provides a simple 2-d contiguous array.  We can use it as:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;RandomDistribution.h&quot;</span>
+  <section id="using-distributions">
+<h1>Using Distributions<a class="headerlink" href="#using-distributions" title="Link to this heading"></a></h1>
+<p>A <code class="docutils literal notranslate"><span class="pre">Distribution</span></code> contains a <cite>valarray</cite> of samplings from a distribution for the purpose of Monte Carlo error propagation. In particular, <cite>RandomDistribution.h</cite> contains functions that allow for the construction of these objects using common random distributions (e.g. normal, uniform).</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;../include/RandomDistribution.h&quot;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="c1">// Set fixed seed</span>
+
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">mt19937</span><span class="w"> </span><span class="n">rng</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">   </span><span class="c1">// Define distributions of real numbers</span>
+
+<span class="w">   </span><span class="n">Distribution</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Normal</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="n">rng</span><span class="p">);</span>
+<span class="w">   </span><span class="n">Distribution</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Normal</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.25</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="n">rng</span><span class="p">);</span>
+
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;x = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w">  </span><span class="c1">// 2.00701 +/- 0.509177</span>
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;y = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// 3.00351 +/- 0.254589</span>
+
+<span class="w">   </span><span class="c1">// Perform math</span>
+
+<span class="w">   </span><span class="n">Distribution</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">.</span><span class="n">apply</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cos</span><span class="p">);</span>
+
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;z = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// -1.94326 +/- 0.534799</span>
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;z*z = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">z</span><span class="o">*</span><span class="n">z</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// 4.06226 +/- 1.97789</span>
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;cov(z, x) = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">covariance</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// -0.270275</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>

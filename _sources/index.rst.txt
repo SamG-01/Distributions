@@ -11,8 +11,12 @@ Welcome to Distributions's documentation!
    :caption: Contents:
 
    using
-   doxygen_files
 
+.. toctree::
+   :maxdepth: 1
+   :caption: API:
+
+   doxygen_files
 
 Indices and tables
 ==================

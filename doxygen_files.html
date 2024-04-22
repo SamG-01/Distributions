@@ -21,7 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Using Array" href="using.html" /> 
+    <link rel="prev" title="Using Distributions" href="using.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,8 +44,11 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="using.html">Using Distributions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="using.html">Using Array</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Doxygen Files</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4I0E12Distribution"><code class="docutils literal notranslate"><span class="pre">Distribution</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N12Distribution12DistributionENSt8valarrayI1TEE"><code class="docutils literal notranslate"><span class="pre">Distribution::Distribution()</span></code></a></li>
@@ -144,17 +147,12 @@
 <dd><div class="docutils container">
 <em>#include &lt;<a class="reference internal" href="#Distribution_8h"><span class="std std-ref">Distribution.h</span></a>&gt;</em></div>
 <p>Contains a distribution of values that can be operated on to perform Monte Carlo error propagation. </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>As an alternative to first- or second-order error propagation for a random variable with a given mean and uncertainty, one can generate sample data reflecting those values, operate on it element-wise, and find the resulting statistics. </p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<p>
+As an alternative to first- or second-order error propagation for a random variable with a given mean and uncertainty, one can generate sample data reflecting those values, operate on it element-wise, and find the resulting statistics.</p>
 <p>To implement this, this class contains a <code class="docutils literal notranslate"><span class="pre">valarray</span></code> object of the sample data along with members with statistical information. </p>
-</div>
 <dl class="field-list simple">
 <dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>T</strong> – the data type (<code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, etc.). </p>
+<dd class="field-odd"><p><strong>T</strong> – the data type (<code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, etc.).</p>
 </dd>
 </dl>
 <div class="breathe-sectiondef docutils container">
@@ -162,8 +160,7 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N12Distribution12DistributionENSt8valarrayI1TEE">
 <span id="_CPPv3N12Distribution12DistributionENSt8valarrayI1TEE"></span><span id="_CPPv2N12Distribution12DistributionENSt8valarrayI1TEE"></span><span id="Distribution::Distribution__std::valarray:T:"></span><span class="target" id="classDistribution_1aa627e8837a795dfeade3a5c895784dac"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Distribution</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">valarray</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">__samples</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12Distribution12DistributionENSt8valarrayI1TEE" title="Link to this definition"></a><br /></dt>
-<dd><p>Constructs a distribution from a <code class="docutils literal notranslate"><span class="pre">valarray</span></code>. </p>
-<dl class="field-list simple">
+<dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>__samples</strong> – <code class="docutils literal notranslate"><span class="pre">valarray</span></code> of sample data contained within the distribution. </p>
 </dd>
@@ -173,8 +170,7 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK12Distribution7samplesEv">
 <span id="_CPPv3NK12Distribution7samplesEv"></span><span id="_CPPv2NK12Distribution7samplesEv"></span><span id="Distribution::samplesC"></span><span class="target" id="classDistribution_1aa03286e6ff1228295f36388a880b3c25"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">valarray</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">samples</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK12Distribution7samplesEv" title="Link to this definition"></a><br /></dt>
-<dd><p>Getters for private members. </p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK12Distribution4dataEv">
@@ -184,7 +180,8 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK12Distribution11num_samplesEv">
 <span id="_CPPv3NK12Distribution11num_samplesEv"></span><span id="_CPPv2NK12Distribution11num_samplesEv"></span><span id="Distribution::num_samplesC"></span><span class="target" id="classDistribution_1a26d9353e8d4242d4f3911a5c411c78e2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">num_samples</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK12Distribution11num_samplesEv" title="Link to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>Number of samples. </p>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK12Distribution4sizeEv">
@@ -204,7 +201,8 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK12Distribution4meanEv">
 <span id="_CPPv3NK12Distribution4meanEv"></span><span id="_CPPv2NK12Distribution4meanEv"></span><span id="Distribution::meanC"></span><span class="target" id="classDistribution_1a0bd3741a8e3789a141da9c35380462c9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mean</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK12Distribution4meanEv" title="Link to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>Average of the samples. </p>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK12Distribution7averageEv">
@@ -219,7 +217,8 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK12Distribution8varianceEv">
 <span id="_CPPv3NK12Distribution8varianceEv"></span><span id="_CPPv2NK12Distribution8varianceEv"></span><span id="Distribution::varianceC"></span><span class="target" id="classDistribution_1af5125952ab2ab57035b472db4f4cd536"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">variance</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK12Distribution8varianceEv" title="Link to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>Variance of the samples. </p>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK12Distribution3varEv">
@@ -229,7 +228,8 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK12Distribution18standard_deviationEv">
 <span id="_CPPv3NK12Distribution18standard_deviationEv"></span><span id="_CPPv2NK12Distribution18standard_deviationEv"></span><span id="Distribution::standard_deviationC"></span><span class="target" id="classDistribution_1a2ea3c33e1fd94e310b9c69225a4b4a3c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">standard_deviation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK12Distribution18standard_deviationEv" title="Link to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>Standard deviation of the samples. </p>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK12Distribution7std_devEv">
@@ -239,8 +239,7 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N12Distribution5applyEF1T1TE">
 <span id="_CPPv3N12Distribution5applyEF1T1TE"></span><span id="_CPPv2N12Distribution5applyEF1T1TE"></span><span class="target" id="classDistribution_1a1af5f8c0e12041e3603537b56e8196da"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution"><span class="n"><span class="pre">Distribution</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">apply</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">func</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12Distribution5applyEF1T1TE" title="Link to this definition"></a><br /></dt>
-<dd><p>Methods. </p>
-<p>Applies a function to <code class="docutils literal notranslate"><span class="pre">samples</span></code> element-wise. </p>
+<dd><p>Applies a function to <code class="docutils literal notranslate"><span class="pre">samples</span></code> element-wise. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>func</strong> – the function to be applied. </p>
@@ -268,8 +267,7 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N12DistributionplEK12DistributionI1TE">
 <span id="_CPPv3N12DistributionplEK12DistributionI1TE"></span><span id="_CPPv2N12DistributionplEK12DistributionI1TE"></span><span id="Distribution::add-operator__Distribution:T:C"></span><span class="target" id="classDistribution_1a55a9b4ee0bc172d5ec1618ac8685ce86"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution"><span class="n"><span class="pre">Distribution</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution"><span class="n"><span class="pre">Distribution</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">Dist2</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DistributionplEK12DistributionI1TE" title="Link to this definition"></a><br /></dt>
-<dd><p><code class="docutils literal notranslate"><a class="reference internal" href="#classDistribution"><span class="std std-ref"><span class="pre">Distribution</span></span></a></code>-<code class="docutils literal notranslate"><a class="reference internal" href="#classDistribution"><span class="std std-ref"><span class="pre">Distribution</span></span></a></code> operations </p>
-<p>Add <code class="docutils literal notranslate"><a class="reference internal" href="#classDistribution"><span class="std std-ref"><span class="pre">Distribution</span></span></a></code>s by adding their samples element-wise. </p>
+<dd><p>Add <code class="docutils literal notranslate"><a class="reference internal" href="#classDistribution"><span class="std std-ref"><span class="pre">Distribution</span></span></a></code>s by adding their samples element-wise. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>Dist2</strong> – second summand. </p>
@@ -325,8 +323,7 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N12DistributionplEK1T">
 <span id="_CPPv3N12DistributionplEK1T"></span><span id="_CPPv2N12DistributionplEK1T"></span><span id="Distribution::add-operator__TC"></span><span class="target" id="classDistribution_1a72e586da0c5a3df85a247d1c5eab1f11"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution"><span class="n"><span class="pre">Distribution</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">scalar</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DistributionplEK1T" title="Link to this definition"></a><br /></dt>
-<dd><p><code class="docutils literal notranslate"><a class="reference internal" href="#classDistribution"><span class="std std-ref"><span class="pre">Distribution</span></span></a></code>-scalar operations. </p>
-<p>Sum of a <code class="docutils literal notranslate"><a class="reference internal" href="#classDistribution"><span class="std std-ref"><span class="pre">Distribution</span></span></a></code> and a scalar. </p>
+<dd><p>Sum of a <code class="docutils literal notranslate"><a class="reference internal" href="#classDistribution"><span class="std std-ref"><span class="pre">Distribution</span></span></a></code> and a scalar. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>scalar</strong> – summand of type <code class="docutils literal notranslate"><span class="pre">T</span></code>. </p>
@@ -396,8 +393,7 @@
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N12Distribution8_samplesE">
 <span id="_CPPv3N12Distribution8_samplesE"></span><span id="_CPPv2N12Distribution8_samplesE"></span><span id="Distribution::_samples__std::valarray:T:"></span><span class="target" id="classDistribution_1ae89b27fd0d6d4c2facefbd8685468330"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">valarray</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_samples</span></span></span><a class="headerlink" href="#_CPPv4N12Distribution8_samplesE" title="Link to this definition"></a><br /></dt>
-<dd><p>Core members. </p>
-<p><code class="docutils literal notranslate"><span class="pre">valarray</span></code> containing the sample data. </p>
+<dd><p><code class="docutils literal notranslate"><span class="pre">valarray</span></code> containing the sample data. </p>
 </dd></dl>
 
 <dl class="cpp var">
@@ -409,8 +405,7 @@
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N12Distribution5_meanE">
 <span id="_CPPv3N12Distribution5_meanE"></span><span id="_CPPv2N12Distribution5_meanE"></span><span id="Distribution::_mean__T"></span><span class="target" id="classDistribution_1a97bb8fd2123895e12e19ff8a396c7470"></span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_mean</span></span></span><a class="headerlink" href="#_CPPv4N12Distribution5_meanE" title="Link to this definition"></a><br /></dt>
-<dd><p>Statistics of the data. </p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N12Distribution9_varianceE">
@@ -428,8 +423,7 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4I0EN12DistributionlsERNSt7ostreamERNSt7ostreamEK12DistributionI1TE">
 <span id="_CPPv3I0EN12DistributionlsERNSt7ostreamEK12DistributionI1TE"></span><span id="_CPPv2I0EN12DistributionlsERNSt7ostreamEK12DistributionI1TE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classDistribution_1a1c76e4e02b7685311b9da88b55a31a9e"></span><span class="k"><span class="pre">friend</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">os</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution"><span class="n"><span class="pre">Distribution</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN12DistributionlsERNSt7ostreamERNSt7ostreamEK12DistributionI1TE" title="Link to this definition"></a><br /></dt>
-<dd><p>Friends. </p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4I0EN12DistributionplE12DistributionI1TE1TK12DistributionI1TE">
@@ -533,14 +527,12 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4I0ElsRNSt7ostreamERNSt7ostreamERK12DistributionI1TE">
 <span id="_CPPv3I0ElsRNSt7ostreamERK12DistributionI1TE"></span><span id="_CPPv2I0ElsRNSt7ostreamERK12DistributionI1TE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="Distribution_8h_1a6a5f1f78996d8815c90537d394a84f8b"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">os</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution"><span class="n"><span class="pre">Distribution</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0ElsRNSt7ostreamERNSt7ostreamERK12DistributionI1TE" title="operator&lt;&lt;::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">Dist</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0ElsRNSt7ostreamERNSt7ostreamERK12DistributionI1TE" title="Link to this definition"></a><br /></dt>
-<dd><p>Friends. </p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4I0Epl12DistributionI1TE1TRK12DistributionI1TE">
 <span id="_CPPv3I0Epl1TRK12DistributionI1TE"></span><span id="_CPPv2I0Epl1TRK12DistributionI1TE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="Distribution_8h_1a6c50be929aa4152f02cca07602944100"></span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution"><span class="n"><span class="pre">Distribution</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0Epl12DistributionI1TE1TRK12DistributionI1TE" title="operator+::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0Epl12DistributionI1TE1TRK12DistributionI1TE" title="operator+::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">scalar</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution"><span class="n"><span class="pre">Distribution</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0Epl12DistributionI1TE1TRK12DistributionI1TE" title="operator+::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">Dist</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0Epl12DistributionI1TE1TRK12DistributionI1TE" title="Link to this definition"></a><br /></dt>
-<dd><p>Scalar-<code class="docutils literal notranslate"><a class="reference internal" href="#classDistribution"><span class="std std-ref"><span class="pre">Distribution</span></span></a></code> operations. </p>
-<p>Add a <code class="docutils literal notranslate"><a class="reference internal" href="#classDistribution"><span class="std std-ref"><span class="pre">Distribution</span></span></a></code> to a scalar. </p>
+<dd><p>Add a <code class="docutils literal notranslate"><a class="reference internal" href="#classDistribution"><span class="std std-ref"><span class="pre">Distribution</span></span></a></code> to a scalar. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>T</strong> – the data type of the scalar and <code class="docutils literal notranslate"><a class="reference internal" href="#classDistribution"><span class="std std-ref"><span class="pre">Distribution</span></span></a></code>. </p>
@@ -741,7 +733,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="using.html" class="btn btn-neutral float-left" title="Using Array" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="using.html" class="btn btn-neutral float-left" title="Using Distributions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
