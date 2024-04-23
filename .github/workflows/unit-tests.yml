@@ -1,9 +1,9 @@
-name: distributions-unit-tests
+name: unit-tests
 
 on: [push, pull_request]
 
 jobs:
-  cxx-tests:
+  unit-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -15,10 +15,10 @@ jobs:
           sudo apt-get update -y -qq
           sudo apt-get -qq -y install g++
 
-      - name: Build
-        run: |
-          make unit_tests
-
       - name: Test
         run: |
-          ./unit_tests
+          make testing
+
+      - name: Output
+        run: |
+          cat out
