@@ -26,8 +26,9 @@ int main() {
     // Getters
     //unit_test("Distribution.samples()", N.samples()[0] == 1);
     unit_test("Distribution.num_samples()", U.num_samples() == 1000);
-    //unit_test("Distribution.mean()", N.mean() == 2.00701);
-    //unit_test("Distribution.standard_deviation()", N.standard_deviation() == 0.509177);
+    unit_test("Distribution.mean()", N.mean() == 2.00701);
+    unit_test("Distribution.variance()", U.variance() == 0.0648154);
+    unit_test("Distribution.standard_deviation()", N.standard_deviation() == 1.509177);
 
     return 0;
 }
