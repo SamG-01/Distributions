@@ -10,4 +10,4 @@ tests/Tests.exe: include/Distribution.h include/RandomDistribution.h
 
 testing: tests/Tests.exe
 	$(shell ./tests/Tests.exe > out)
-	@if [ ${.SHELLSTATUS} = 0 ]; then echo "all tests passed"; exit 0; else exit 1; fi
+	@if [ ${.SHELLSTATUS} = 0 ]; then echo "all tests passed"; exit 0; else cat out; exit 1; fi

@@ -18,7 +18,3 @@ jobs:
       - name: Test
         run: |
           make testing
-
-      - name: Output
-        run: |
-          cat out
