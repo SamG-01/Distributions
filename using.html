@@ -79,7 +79,7 @@
              
   <section id="using-distributions">
 <h1>Using Distributions<a class="headerlink" href="#using-distributions" title="Link to this heading"></a></h1>
-<p>A <code class="docutils literal notranslate"><span class="pre">Distribution</span></code> contains a <cite>valarray</cite> of samplings from a distribution for the purpose of Monte Carlo error propagation. In particular, <cite>RandomDistribution.h</cite> contains functions that allow for the construction of these objects using common random distributions (e.g. normal, uniform).</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">Distribution</span></code> contains a <cite>valarray</cite> of samplings from a distribution. In particular, <cite>RandomDistribution.h</cite> contains functions that allow for the construction of these objects using common random distributions (e.g. normal, uniform). This class takes advantage of the existing methods for element-wise arithmetic and applying functions for the contained <cite>valarray</cite> for the purpose of Monte Carlo error propagation.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;../include/RandomDistribution.h&quot;</span>

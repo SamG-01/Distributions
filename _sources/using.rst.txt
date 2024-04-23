@@ -2,7 +2,7 @@
 Using Distributions
 ***********
 
-A ``Distribution`` contains a `valarray` of samplings from a distribution for the purpose of Monte Carlo error propagation. In particular, `RandomDistribution.h` contains functions that allow for the construction of these objects using common random distributions (e.g. normal, uniform).
+A ``Distribution`` contains a `valarray` of samplings from a distribution. In particular, `RandomDistribution.h` contains functions that allow for the construction of these objects using common random distributions (e.g. normal, uniform). This class takes advantage of the existing methods for element-wise arithmetic and applying functions for the contained `valarray` for the purpose of Monte Carlo error propagation.
 
 .. code:: c++
 
