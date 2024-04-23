@@ -59,6 +59,13 @@ class Distribution {
         T standard_deviation() const {return _standard_deviation; }
         T std_dev() const {return _standard_deviation; }
 
+        /// @brief Provides read-only access to the (i+1)-th sample in the distribution.
+        /// @param i the index.
+        /// @return _samples[i].
+        const T& operator[](int i) const {
+            return _samples[i];
+        }
+
         // Methods
 
         /// @brief Applies a function to `samples` element-wise.
