@@ -65,6 +65,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK12Distribution3varEv"><code class="docutils literal notranslate"><span class="pre">Distribution::var()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK12Distribution18standard_deviationEv"><code class="docutils literal notranslate"><span class="pre">Distribution::standard_deviation()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK12Distribution7std_devEv"><code class="docutils literal notranslate"><span class="pre">Distribution::std_dev()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK12DistributionixEi"><code class="docutils literal notranslate"><span class="pre">Distribution::operator[]()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N12Distribution5applyEF1T1TE"><code class="docutils literal notranslate"><span class="pre">Distribution::apply()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N12Distribution10covarianceEK12DistributionI1TE"><code class="docutils literal notranslate"><span class="pre">Distribution::covariance()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N12DistributionplEK12DistributionI1TE"><code class="docutils literal notranslate"><span class="pre">Distribution::operator+()</span></code></a></li>
@@ -237,6 +238,20 @@ As an alternative to first- or second-order error propagation for a random varia
 <dt class="sig sig-object cpp" id="_CPPv4NK12Distribution7std_devEv">
 <span id="_CPPv3NK12Distribution7std_devEv"></span><span id="_CPPv2NK12Distribution7std_devEv"></span><span id="Distribution::std_devC"></span><span class="target" id="classDistribution_1aaba059a50e4101fb0f5724749a3d94df"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">std_dev</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK12Distribution7std_devEv" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK12DistributionixEi">
+<span id="_CPPv3NK12DistributionixEi"></span><span id="_CPPv2NK12DistributionixEi"></span><span id="Distribution::subscript-operator__iC"></span><span class="target" id="classDistribution_1ad6e7ec4cf1f378750b76e5ad11f1d18c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0E12Distribution" title="Distribution::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK12DistributionixEi" title="Link to this definition"></a><br /></dt>
+<dd><p>Provides read-only access to the (i+1)-th sample in the distribution. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>i</strong> – the index. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>_samples[i]. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N12Distribution5applyEF1T1TE">
