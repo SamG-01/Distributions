@@ -1,0 +1,1 @@
+This is my final project for PHY 504 Spring 2024. This package implements a `Distribution` class that enables Monte Carlo error propagation by generating sample data from distributions and performing arithmetic or other functions on them element-wise.

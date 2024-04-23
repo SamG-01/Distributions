@@ -8,7 +8,6 @@
 std::random_device rd;
 std::mt19937 default_rng(rd());
 
-/// @brief Creates source of pseudo-random numbers.
 /// @brief Helper function to generate `Distribution` objects using sources of random numbers.
 /// @tparam T the data type.
 /// @tparam DT the type of `dis`.
